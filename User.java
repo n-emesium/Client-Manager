@@ -14,7 +14,7 @@ public class User {
     private String country;
     private int zip;
     private String email;
-    private String number; //XXX XXX XX XX example
+    private String number = ""; //XXX XXX XX XX example
     private String addr;
     private String pw;
     private String createdAt;
@@ -46,13 +46,10 @@ public class User {
         Dice month = new Dice(12);
         Dice year = new Dice(2024);
         int y1 = year.roll();
-        birthday = day.roll() + " / " + month.roll() + " / " + y1;
-        if (month.roll() <= 6) {
-            gender = false;
-        } else {
-            gender = true;
-        }
-        this.age = 2024 - y1;
+        int m1 = month.roll();
+        birthday = day.roll() + " / " + m1 + " / " + y1;
+        gender = m1 <= 6;
+        this.age = LocalDateTime.now().getYear() - y1;
         //gmail logic: 
         //use StringUtil split function
         ArrayList<String> nameList = StringUtil.split(name);
