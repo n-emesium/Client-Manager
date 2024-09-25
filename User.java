@@ -67,7 +67,7 @@ public class User {
         Dice numbers = new Dice(10); //new dice roll [1,10]
         for (int i = 0; i < 10; i++) {
             int g = numbers.roll();
-            if (g != 1) {
+            if (g != 1 || i != 0) {
                 g--;
             }
             number += g;
